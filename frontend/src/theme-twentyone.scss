@@ -163,3 +163,7 @@ h1, h2, .card-title { font-family: 'Newsreader', Georgia, serif; font-weight: 50
 .subdomain_logo.custom_logo { height: 26px; max-height: 26px !important; width: auto; }
 .subdomain_logo.custom_logo.mobile_logo { height: 22px; max-height: 22px !important; }
 footer .enterprise-logo { height: 30px !important; width: auto; }
+
+/* 3D block sides are hard-coded navy upstream; use warm neutrals instead */
+.bitcoin-block::after { background-color: #2A2824 !important; }
+.bitcoin-block::before { background-color: #1B1917 !important; }
