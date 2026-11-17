@@ -54,14 +54,16 @@
         "component": "twitter",
         "mobileOrder": 6,
         "props": {
-          "handle": "twentyone"
+          "handle": "twentyone",
+          "title": "Twenty One on X"
         }
       },
       {
         "component": "twitter",
         "mobileOrder": 7,
         "props": {
-          "handle": "RaphaZagury"
+          "handle": "RaphaZagury",
+          "title": "Raphael Zagury on X"
         }
       }
     ]

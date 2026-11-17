@@ -305,7 +305,7 @@
             <div class="card graph-card">
               <div class="card-body pl-lg-3 pr-lg-3 pl-2 pr-2 d-flex flex-column">
                 <a class="title-link" [href]="'https://x.com/' + widget.props?.handle" target="_blank">
-                  <h5 class="card-title d-inline" i18n="dashboard.x-timeline">X Timeline</h5>
+                  @if (widget.props?.title) { <h5 class="card-title d-inline">{{ widget.props.title }}</h5> } @else { <h5 class="card-title d-inline" i18n="dashboard.x-timeline">X Timeline</h5> }
                   <span>&nbsp;</span>
                   <fa-icon [icon]="['fas', 'external-link-alt']" [fixedWidth]="true" style="vertical-align: text-top; font-size: 13px; color: var(--title-fg)"></fa-icon>
                 </a>
