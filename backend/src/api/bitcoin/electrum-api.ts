@@ -232,6 +232,59 @@ class BitcoindElectrsApi extends BitcoinApi implements AbstractBitcoinApi {
     return this.electrumClient.blockchainScripthash_listunspent(scriptHash);
   }
 
+  /**
+   * Per-transaction net value for an address (the Esplora `/address/:addr/txs/summary`
+   * equivalent), so the wallet/treasury feature works with an Electrum server.
+   *
+   * The Electrum protocol's history only returns txids and heights, so each
+   * confirmed transaction is fetched with its prevouts from Bitcoin Core and the
+   * address's outputs minus its spent inputs are summed. Confirmed results never
+   * change and are cached per address+txid. Unconfirmed transactions are left out,
+   * matching Esplora's chain-only summary; they're added when their block arrives.
+   *
+   * @asyncUnsafe
+   */
+  async $getAddressTransactionSummary(address: string): Promise<IEsploraApi.AddressTxSummary[]> {
+    const addressInfo = await this.bitcoindClient.validateAddress(address);
+    if (!addressInfo || !addressInfo.isvalid) {
+      throw new Error('Invalid Bitcoin address');
+    }
+
+    const history = await this.$getScriptHashHistory(addressInfo.scriptPubKey);
+    const summary: IEsploraApi.AddressTxSummary[] = [];
+    for (const item of history) {
+      if (item.height <= 0) {
+        continue; // unconfirmed
+      }
+      const cacheKey = `${address}:${item.tx_hash}`;
+      let row = memoryCache.get<IEsploraApi.AddressTxSummary>('AddressTxSummary', cacheKey);
+      if (!row) {
+        const tx = await this.$getRawTransaction(item.tx_hash, false, true);
+        let value = 0;
+        for (const vout of tx.vout) {
+          if (vout.scriptpubkey_address === address) {
+            value += vout.value;
+          }
+        }
+        for (const vin of tx.vin) {
+          if (vin.prevout?.scriptpubkey_address === address) {
+            value -= vin.prevout.value;
+          }
+        }
+        row = {
+          txid: item.tx_hash,
+          value,
+          height: item.height,
+          time: tx.status?.block_time ?? 0,
+        };
+        memoryCache.set('AddressTxSummary', cacheKey, row, 24 * 60 * 60);
+      }
+      summary.push(row);
+    }
+    // newest first, like Esplora
+    return summary.sort((a, b) => b.height - a.height);
+  }
+
   /** @asyncUnsafe */
   async $getTransactionMerkleProof(txId: string): Promise<IEsploraApi.MerkleProof> {
     const tx = await this.$getRawTransaction(txId);
