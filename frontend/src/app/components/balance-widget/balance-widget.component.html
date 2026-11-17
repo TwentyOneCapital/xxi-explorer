@@ -2,7 +2,7 @@
   <div class="card-body more-padding">
     <div class="balance-container" *ngIf="!isLoading; else loading">
       <div class="item">
-        <h5 class="card-title" i18n="dashboard.btc-holdings">BTC Holdings</h5>
+        @if (holdingsLabel) { <h5 class="card-title">{{ holdingsLabel }}</h5> } @else { <h5 class="card-title" i18n="dashboard.btc-holdings">BTC Holdings</h5> }
         <div class="card-text">
           {{ ((total) / 100_000_000) | number: '1.2-2' }} <span class="symbol" i18n="shared.btc|BTC">BTC</span>
         </div>
@@ -35,7 +35,7 @@
 <ng-template #loading>
   <div class="balance-skeleton">
     <div class="item">
-      <h5 class="card-title" i18n="dashboard.btc-holdings">BTC Holdings</h5>
+      @if (holdingsLabel) { <h5 class="card-title">{{ holdingsLabel }}</h5> } @else { <h5 class="card-title" i18n="dashboard.btc-holdings">BTC Holdings</h5> }
       <div class="card-text">
         <div class="skeleton-loader"></div>
         <div class="skeleton-loader"></div>

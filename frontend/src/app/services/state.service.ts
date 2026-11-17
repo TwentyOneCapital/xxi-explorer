@@ -33,6 +33,7 @@ export interface Customization {
     footer_img?: string;
     rounded_corner: boolean;
     cobranded?: boolean;
+    search_placeholder?: string;
   },
   dashboard: {
     widgets: {

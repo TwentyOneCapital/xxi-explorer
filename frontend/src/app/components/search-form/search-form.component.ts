@@ -21,6 +21,7 @@ import { Network, findOtherNetworks, getRegex, getTargetUrl, needBaseModuleChang
 export class SearchFormComponent implements OnInit {
   @Input() hamburgerOpen = false;
   env: Env;
+  placeholderText = $localize`:@@search-form.searchbar-placeholder:Explore the full Bitcoin ecosystem`;
   network = '';
   assets: object = {};
   pools: object[] = [];
@@ -71,6 +72,9 @@ export class SearchFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.env = this.stateService.env;
+    if (this.env.customize?.branding?.search_placeholder) {
+      this.placeholderText = this.env.customize.branding.search_placeholder;
+    }
     this.stateService.networkChanged$.subscribe((network) => {
       this.network = network;
       // TODO: Eventually change network type here from string to enum of consts

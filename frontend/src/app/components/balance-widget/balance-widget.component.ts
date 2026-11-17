@@ -12,6 +12,7 @@ import { Observable, catchError, of } from 'rxjs';
   standalone: false,
 })
 export class BalanceWidgetComponent implements OnInit, OnChanges {
+  @Input() holdingsLabel: string;
   @Input() address: string;
   @Input() addressInfo: Address;
   @Input() addressSummary$: Observable<AddressTxSummary[]> | null;

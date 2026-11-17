@@ -8,24 +8,39 @@
     "header_img": "/resources/twentyone/wordmark-light.svg",
     "footer_img": "/resources/twentyone/wordmark-light.svg",
     "rounded_corner": false,
-    "cobranded": false
+    "cobranded": false,
+    "search_placeholder": "Search address, transaction, or block"
   },
   "dashboard": {
     "widgets": [
       {
         "component": "walletBalance",
         "mobileOrder": 1,
-        "props": { "wallet": "twentyone" }
+        "props": {
+          "wallet": "twentyone",
+          "heading": "Disclosed addresses",
+          "holdingsLabel": "On-chain balance",
+          "note": "Balance of the company's disclosed addresses. Not the reported total.",
+          "noteLink": "https://twentyonecapital.com/reserves",
+          "noteLinkText": "See reserves →"
+        }
       },
       {
         "component": "wallet",
         "mobileOrder": 2,
-        "props": { "wallet": "twentyone", "period": "all" }
+        "props": {
+          "wallet": "twentyone",
+          "period": "all",
+          "title": "On-chain balance history"
+        }
       },
       {
         "component": "walletTransactions",
         "mobileOrder": 3,
-        "props": { "wallet": "twentyone" }
+        "props": {
+          "wallet": "twentyone",
+          "title": "Transactions"
+        }
       },
       {
         "component": "fees",
@@ -38,12 +53,16 @@
       {
         "component": "twitter",
         "mobileOrder": 6,
-        "props": { "handle": "twentyone" }
+        "props": {
+          "handle": "twentyone"
+        }
       },
       {
         "component": "twitter",
         "mobileOrder": 7,
-        "props": { "handle": "RaphaZagury" }
+        "props": {
+          "handle": "RaphaZagury"
+        }
       }
     ]
   }
