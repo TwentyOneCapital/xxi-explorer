@@ -360,3 +360,12 @@ footer .nowrap {
   font-size: 8px;
   margin-left: 1em;
 }
+
+// Twenty One build: attribution and trademark notice
+.attribution {
+  text-align: center;
+  font-size: 12px;
+  color: var(--transparent-fg);
+  padding: 4px 0 12px;
+  p { margin: 2px 0; }
+}

@@ -1,0 +1,165 @@
+@use "sass:color";
+
+/*
+ * Twenty One Capital theme.
+ * Colors and type follow twentyonecapital.com (css/site.css, dark mode).
+ * Replaces mempool's default palette, which is mempool trade dress.
+ */
+@font-face { font-family: 'Inter'; src: url('/resources/twentyone/fonts/Inter-400-700.woff2') format('woff2'); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('/resources/twentyone/fonts/IBMPlexMono-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('/resources/twentyone/fonts/IBMPlexMono-500.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Newsreader'; src: url('/resources/twentyone/fonts/Newsreader-400-700.woff2') format('woff2'); font-weight: 400 700; font-display: swap; }
+
+
+/* Theme */
+$bg: #131110;
+$active-bg: #0B0A09;
+$hover-bg: #1B1917;
+$fg: #F5F2EC;
+$nav-bg: #0B0A09;
+$title-fg: #F08A4B;
+
+$taproot: #D4A017;
+$taproot-light: #d5a90a;
+$taproot-dark: #9d7c05;
+
+/* Bootstrap */
+$body-bg: $bg;
+$body-color: $fg;
+$gray-800: $bg;
+$gray-700: $fg;
+
+$nav-tabs-link-active-bg: $active-bg;
+
+$primary: #E05A1E;
+$secondary: #23201C;
+$tertiary: #D4A017;
+$success: #0aab2f;
+$info: #F08A4B;
+
+$h5-font-size: 1.15rem !default;
+
+$pagination-bg: $body-bg;
+$pagination-border-color: $gray-800;
+$pagination-disabled-bg:           $fg;
+$pagination-disabled-border-color: $bg;
+$pagination-active-color:          $fg;
+$pagination-active-bg:             $tertiary;
+$pagination-hover-bg:              $hover-bg;
+$pagination-hover-border-color:     $bg;
+$pagination-disabled-bg:          $bg;
+
+$custom-select-indicator-color: $fg;
+
+.input-group-text {
+  background-color: #1B1917 !important;
+  border: 1px solid #2A2824 !important;
+}
+
+$link-color:                $info;
+$link-decoration:           none !default;
+$link-hover-color:          color.adjust($link-color, $lightness: -15%) !default;
+$link-hover-decoration:     underline !default;
+
+$dropdown-bg: $bg;
+$dropdown-link-color: $fg;
+
+$dropdown-link-hover-color: $fg;
+$dropdown-link-hover-bg: $active-bg;
+
+$dropdown-link-active-color: $fg;
+$dropdown-link-active-bg: $active-bg;
+
+:root {
+  --bg: #{$bg};
+  --active-bg: #{$active-bg};
+  --hover-bg: #{$hover-bg};
+  --fg: #{$fg};
+  --nav-bg: #{$nav-bg};
+  --title-fg: #{$title-fg};
+
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --tertiary: #{$tertiary};
+  --success: #{$success};
+  --info: #{$info};
+  --link-color: #{$link-color};
+  --link-hover-color: #{$link-hover-color};
+  --icon: #A8A49B;
+  --skeleton-bg: #2A2824;
+  --skeleton-bg-light: #3A3731;
+
+  --box-bg: #1B1917;
+  --stat-box-bg: #0B0A09;
+  --alert-bg: #53331C;
+  --transparent-fg: #ffffffbb;
+  --fade-out-box-bg-start: rgba(27, 25, 23, 0);
+  --fade-out-box-bg-end: rgba(27, 25, 23, 1);
+  --opacity: 0.9;
+
+  --testnet: #1d486f;
+  --signet: #6f1d5d;
+  --regtest: #7d7d7d;
+  --liquid: #116761;
+  --liquidtestnet: #494a4a;
+
+  --mainnet-alt: #E05A1E;
+  --testnet-alt: #183550;
+  --signet-alt: #471850;
+  --regtest-alt: #4a4a4a;
+  --liquidtestnet-alt: #272e46;
+
+  --taproot: #D4A017;
+  --taproot-light: #d5a90a;
+  --taproot-dark: #9d7c05;
+
+  --green: #83fd00;
+  --red: #ff3d00;
+  --yellow: #fff000;
+  --grey: #7e7e7e;
+  --tooltip-grey: #b1b1b1;
+  --orange: #ff9f00;
+
+  --search-button: #E05A1E;
+  --search-button-border: #E05A1E;
+  --search-button-focus: #F08A4B;
+  --search-button-shadow: #53331C;
+}
+
+.navbar {
+  --secondary: #0B0A09;
+}
+
+.nav-item.active, .btn-purple {
+  --icon: white;
+}
+
+.btn-purple:not(:disabled):not(.disabled):active, .btn-purple:not(:disabled):not(.disabled).active, .show > .btn-purple.dropdown-toggle {
+  color: #fff;
+  background-color: var(--search-button);
+  border-color: var(--search-button-border);
+}
+
+.btn-purple:focus, .btn-purple.focus {
+  color: #fff;
+  background-color: var(--search-button-focus);
+  border-color: var(--search-button);
+  box-shadow: 0 0 0 0.2rem var(--search-button-shadow);
+}
+
+.btn-purple:hover {
+  color: #fff;
+  background-color: var(--search-button-focus);
+  border-color: var(--search-button);
+}
+/* Typography */
+body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; }
+code, pre, .monospace, .txid, .address-link, .hash { font-family: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
+h1, h2, .card-title { font-family: 'Newsreader', Georgia, serif; font-weight: 500; letter-spacing: 0; }
+.card, .box { border: 1px solid #2A2824; border-radius: 2px; }
+
+/* Wide wordmark instead of a square logo */
+.subdomain_container { max-width: 280px !important; }
+.subdomain_logo.custom_logo { height: 26px; max-height: 26px !important; width: auto; }
+.subdomain_logo.custom_logo.mobile_logo { height: 22px; max-height: 22px !important; }
+footer .enterprise-logo { height: 30px !important; width: auto; }

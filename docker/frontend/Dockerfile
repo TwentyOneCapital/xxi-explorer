@@ -9,6 +9,11 @@ COPY . .
 RUN apt-get update
 RUN apt-get install -y build-essential rsync
 RUN cp mempool-frontend-config.sample.json mempool-frontend-config.json
+# Twenty One build: bake in the branding/dashboard customization when requested.
+ARG CUSTOMIZATION=""
+RUN if [ -n "$CUSTOMIZATION" ]; then \
+      node -e 'const f="mempool-frontend-config.json",c=JSON.parse(require("fs").readFileSync(f));c.CUSTOMIZATION=process.argv[1];require("fs").writeFileSync(f,JSON.stringify(c,null,2))' "$CUSTOMIZATION"; \
+    fi
 RUN npm install --omit=dev --omit=optional
 
 RUN npm run build

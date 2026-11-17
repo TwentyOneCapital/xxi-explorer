@@ -1,0 +1,50 @@
+{
+  "theme": "twentyone",
+  "enterprise": "twentyone",
+  "branding": {
+    "name": "twentyone",
+    "title": "Twenty One Capital",
+    "site_id": null,
+    "header_img": "/resources/twentyone/wordmark-light.svg",
+    "footer_img": "/resources/twentyone/wordmark-light.svg",
+    "rounded_corner": false,
+    "cobranded": false
+  },
+  "dashboard": {
+    "widgets": [
+      {
+        "component": "walletBalance",
+        "mobileOrder": 1,
+        "props": { "wallet": "twentyone" }
+      },
+      {
+        "component": "wallet",
+        "mobileOrder": 2,
+        "props": { "wallet": "twentyone", "period": "all" }
+      },
+      {
+        "component": "walletTransactions",
+        "mobileOrder": 3,
+        "props": { "wallet": "twentyone" }
+      },
+      {
+        "component": "fees",
+        "mobileOrder": 4
+      },
+      {
+        "component": "blocks",
+        "mobileOrder": 5
+      },
+      {
+        "component": "twitter",
+        "mobileOrder": 6,
+        "props": { "handle": "twentyone" }
+      },
+      {
+        "component": "twitter",
+        "mobileOrder": 7,
+        "props": { "handle": "RaphaZagury" }
+      }
+    ]
+  }
+}

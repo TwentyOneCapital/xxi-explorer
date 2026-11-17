@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Favicon: 21 in IBM Plex Mono 500 outlines (the site's mono, the ASCII field's type), in the orange of the
+     "Our vision" button: accent-deep #9A3412 for a light browser, accent #E05A1E for a dark one (Rapha,
+     October 31, 2026). Drawn as shapes, no tile. Replaced 21 with the Bitcoin sign, which read as 21 billion. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="21">
+  <style>path { fill: #9A3412; } @media (prefers-color-scheme: dark) { path { fill: #E05A1E; } }</style>
+  <path d="M57.72 98.50H10.87V88.10L33.03 68.76Q38.28 64.09 41.15 59.91Q44.02 55.73 44.02 51.07V50.00Q44.02 44.65 41.10 41.78Q38.19 38.91 32.64 38.91Q27.01 38.91 23.94 41.93Q20.88 44.94 19.52 49.61L10.0 46.01Q10.97 42.80 12.81 39.84Q14.66 36.87 17.53 34.54Q20.40 32.21 24.33 30.85Q28.27 29.49 33.42 29.49Q38.67 29.49 42.80 30.99Q46.93 32.50 49.75 35.12Q52.57 37.75 54.03 41.39Q55.49 45.04 55.49 49.41Q55.49 53.50 54.27 56.95Q53.06 60.40 50.87 63.56Q48.68 66.72 45.67 69.63Q42.66 72.55 39.06 75.47L22.63 89.27H57.72ZM71.63 98.50V89.46H90.68V38.62H89.90L74.15 55.44L67.45 49.41L84.75 30.65H101.57V89.46H118.0V98.50Z"/>
+</svg>
