@@ -10,8 +10,11 @@ if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
 fi
 
 sh docker/init.sh
-docker build -t "twentyone/mempool-backend:${COMMIT}"  --build-arg commitHash="${COMMIT}" backend
-docker build -t "twentyone/mempool-frontend:${COMMIT}" --build-arg commitHash="${COMMIT}" \
-  --build-arg CUSTOMIZATION=custom-twentyone-config.json frontend
+# buildx is required: the backend Dockerfile uses extra build contexts
+# (same invocation as .github/workflows/docker.yml).
+docker buildx build --load -t "twentyone/mempool-backend:${COMMIT}" --build-arg commitHash="${COMMIT}" \
+  --build-context rustgbt=./rust --build-context backend=./backend -f backend/Dockerfile ./backend/
+docker buildx build --load -t "twentyone/mempool-frontend:${COMMIT}" --build-arg commitHash="${COMMIT}" \
+  --build-arg CUSTOMIZATION=custom-twentyone-config.json -f frontend/Dockerfile ./frontend/
 git checkout -- . 2>/dev/null || true   # undo init.sh's in-tree copies
 echo "built twentyone/mempool-backend:${COMMIT} and twentyone/mempool-frontend:${COMMIT}"
