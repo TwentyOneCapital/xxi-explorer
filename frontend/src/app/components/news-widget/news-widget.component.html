@@ -1,7 +1,7 @@
 @if (releases$ | async; as releases) {
   @if (releases.length) {
     <ul class="news-list">
-      @for (r of releases; track r.url) {
+      @for (r of releases; track r.date + r.headline) {
         <li class="news-item">
           <time class="news-date" [attr.datetime]="r.date">{{ r.date + 'T00:00:00Z' | date:'MMM d, y':'UTC' }}</time>
           <a class="news-headline" [href]="r.url" target="_blank" rel="noopener">{{ r.headline }}</a>
