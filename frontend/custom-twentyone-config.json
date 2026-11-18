@@ -26,20 +26,16 @@
         }
       },
       {
+        "component": "fees",
+        "mobileOrder": 5
+      },
+      {
         "component": "wallet",
         "mobileOrder": 2,
         "props": {
           "wallet": "twentyone",
           "period": "all",
           "title": "On-chain balance history"
-        }
-      },
-      {
-        "component": "walletTransactions",
-        "mobileOrder": 3,
-        "props": {
-          "wallet": "twentyone",
-          "title": "Transactions"
         }
       },
       {
@@ -52,8 +48,12 @@
         }
       },
       {
-        "component": "fees",
-        "mobileOrder": 5
+        "component": "walletTransactions",
+        "mobileOrder": 3,
+        "props": {
+          "wallet": "twentyone",
+          "title": "Transactions"
+        }
       },
       {
         "component": "blocks",
