@@ -124,6 +124,7 @@ import { CalculatorComponent } from '@components/calculator/calculator.component
 import { BitcoinsatoshisPipe } from '@app/shared/pipes/bitcoinsatoshis.pipe';
 import { HttpErrorComponent } from '@app/shared/components/http-error/http-error.component';
 import { TwitterWidgetComponent } from '@components/twitter-widget/twitter-widget.component';
+import { NewsWidgetComponent } from '@components/news-widget/news-widget.component';
 import { SimpleProofWidgetComponent } from '@components/simpleproof-widget/simpleproof-widget.component';
 import { SimpleProofCuboWidgetComponent } from '@components/simpleproof-widget/simpleproof-cubo-widget.component';
 import { FaucetComponent } from '@components/faucet/faucet.component';
@@ -250,6 +251,7 @@ import { GithubLogin } from '@components/github-login.component/github-login.com
     OrdDataComponent,
     HttpErrorComponent,
     TwitterWidgetComponent,
+    NewsWidgetComponent,
     SimpleProofWidgetComponent,
     SimpleProofCuboWidgetComponent,
     FaucetComponent,
@@ -391,6 +393,7 @@ import { GithubLogin } from '@components/github-login.component/github-login.com
     OrdDataComponent,
     HttpErrorComponent,
     TwitterWidgetComponent,
+    NewsWidgetComponent,
     SimpleProofWidgetComponent,
     SimpleProofCuboWidgetComponent,
     TwitterLogin,

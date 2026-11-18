@@ -22,7 +22,7 @@
           "holdingsLabel": "On-chain balance",
           "note": "Balance of the company's disclosed addresses. Not the reported total.",
           "noteLink": "https://twentyonecapital.com/reserves",
-          "noteLinkText": "See reserves →"
+          "noteLinkText": "See reserves \u2192"
         }
       },
       {
@@ -43,28 +43,21 @@
         }
       },
       {
-        "component": "fees",
-        "mobileOrder": 4
+        "component": "news",
+        "mobileOrder": 4,
+        "props": {
+          "title": "News",
+          "limit": 5,
+          "moreLink": "https://twentyonecapital.com/investors#news"
+        }
       },
       {
-        "component": "blocks",
+        "component": "fees",
         "mobileOrder": 5
       },
       {
-        "component": "twitter",
-        "mobileOrder": 6,
-        "props": {
-          "handle": "twentyone",
-          "title": "Twenty One on X"
-        }
-      },
-      {
-        "component": "twitter",
-        "mobileOrder": 7,
-        "props": {
-          "handle": "RaphaZagury",
-          "title": "Raphael Zagury on X"
-        }
+        "component": "blocks",
+        "mobileOrder": 6
       }
     ]
   }
