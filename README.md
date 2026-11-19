@@ -1,3 +1,24 @@
+# XXI Explorer
+
+**Twenty One Capital's Bitcoin explorer, running at
+[mempool.twentyonecapital.com](https://mempool.twentyonecapital.com).**
+
+This is a modified version of The Mempool Open Source Project® software
+(mempool.space), changed by Twenty One Capital, Inc. in 2026. See
+[TWENTYONE.md](TWENTYONE.md) for what was changed and when. It is licensed under the
+GNU Affero General Public License v3 (see [LICENSE](LICENSE)), and it is not
+affiliated with or endorsed by The Mempool Open Source Project or Mempool Holdings
+S.A. de C.V.
+
+The Twenty One Capital name and logos in this repository are trademarks of Twenty
+One Capital, Inc. and are not licensed under the AGPL or any other open source
+license. mempool's own logos have been removed from this version, as its
+[trademark policy](https://mempool.space/trademark-policy) requires.
+
+The upstream project's README follows, unchanged.
+
+---
+
 # The Mempool Open Source Project® [![mempool](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ry4br7/master&style=flat-square)](https://dashboard.cypress.io/projects/ry4br7/runs)
 
 https://user-images.githubusercontent.com/93150691/226236121-375ea64f-b4a1-4cc0-8fad-a6fb33226840.mp4

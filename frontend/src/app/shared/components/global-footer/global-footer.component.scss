@@ -368,4 +368,10 @@ footer .nowrap {
   color: var(--transparent-fg);
   padding: 4px 0 12px;
   p { margin: 2px 0; }
+  .trademark-attribution {
+    max-width: 900px;
+    margin: 8px auto 0;
+    font-size: 10.5px;
+    line-height: 1.5;
+  }
 }

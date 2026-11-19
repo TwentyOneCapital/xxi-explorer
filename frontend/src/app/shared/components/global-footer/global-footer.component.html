@@ -78,8 +78,9 @@
           <p><a [routerLink]="['/tx/test' | relativeUrl]" i18n="shared.test-transaction|Test Transaction">Test Transaction</a></p>
           <p><a [routerLink]="['/tx/preview' | relativeUrl]" i18n="shared.preview-transaction|Preview Transaction">Preview Transaction</a></p>
           <p *ngIf="officialMempoolSpace"><a [routerLink]="['/lightning/group/the-mempool-open-source-project' | relativeUrl]" i18n="footer.connect-to-our-nodes">Connect to our Nodes</a></p>
-          <p><a [routerLink]="['/docs/api' | relativeUrl]" i18n="footer.api-documentation">API Documentation</a></p>
+          <p *ngIf="env.customize?.enterprise !== 'twentyone'"><a [routerLink]="['/docs/api' | relativeUrl]" i18n="footer.api-documentation">API Documentation</a></p>
         </div>
+        @if (env.customize?.enterprise !== 'twentyone') {
         <div class="links">
           <p class="category" i18n="footer.learn">Learn</p>
           <p><a [routerLink]="['/docs/faq']" fragment="what-is-a-mempool" i18n="faq.what-is-a-mempool">What is a mempool?</a></p>
@@ -90,6 +91,7 @@
           <p><a [routerLink]="['/docs/faq' | relativeUrl]" i18n="faq.more-faq">More FAQs &raquo;</a></p>
           <p *ngIf="mempoolSpaceBuild"><a [routerLink]="['/research' | relativeUrl]" i18n="mempool-research">Research</a></p>
         </div>
+        }
 
         <div class="links" *ngIf="officialMempoolSpace || env.TESTNET_ENABLED || env.TESTNET4_ENABLED || env.SIGNET_ENABLED || env.REGTEST_ENABLED || env.LIQUID_ENABLED || env.LIQUID_TESTNET_ENABLED else toolBox" >
           <p class="category" i18n="footer.networks">Networks</p>
@@ -112,6 +114,7 @@
         @if (env.customize?.enterprise === 'twentyone') {
         <div class="links">
           <p class="category">Legal</p>
+          <p><a [routerLink]="['/about']">About and License</a></p>
           <p><a href="https://twentyonecapital.com/legal.html" target="_blank">Legal Notices</a></p>
           <p><a href="https://twentyonecapital.com/privacy.html" target="_blank">Privacy Policy</a></p>
           <p><a href="/3rdpartylicenses.txt">Third-party Licenses</a></p>
@@ -136,8 +139,8 @@
     </div>
     <div class="row attribution">
       <div class="col-sm-12">
-        <p>Powered by mempool.space open-source software &middot; <a href="https://github.com/TwentyOneCapital/mempool" target="_blank">Source code</a> (AGPL-3.0)</p>
-        <p>Not affiliated with or endorsed by The Mempool Open Source Project&reg;. mempool.space&reg; is a registered trademark of Mempool Holdings S.A. de C.V.</p>
+        <p>Powered by mempool.space open-source software &middot; <a href="https://github.com/TwentyOneCapital/xxi-explorer" target="_blank">Source code</a> (AGPL-3.0)</p>
+        <p class="trademark-attribution">The Mempool Open Source Project&reg;, Mempool Accelerator&reg;, Mempool Enterprise&reg;, Mempool Wallet&trade;, Mempool&reg;, mempool.space&reg;, Be your own explorer&trade;, Explore the full Bitcoin ecosystem&reg;, Mempool Goggles&trade;, the mempool logo;, the mempool Square logo;, the mempool Blocks logo;, the mempool Blocks 3 | 2 logo;, the mempool.space Vertical Logo;, the Mempool Accelerator logo;, the Mempool Goggles logo;, and the mempool.space Horizontal logo are either registered trademarks or trademarks of Mempool Holdings S.A. de C.V. in Japan, the United States, and/or other countries, and are used with permission. Mempool Holdings S.A. de C.V.. has no affiliation with and does not sponsor or endorse the information provided herein.</p>
       </div>
     </div>
     } @else {
@@ -159,7 +162,7 @@
           <span>{{ (backendInfo$ | async)?.hostname }} (v{{ (backendInfo$ | async )?.version }}) [<a target="_blank" href="https://github.com/mempool/mempool/commit/{{ (backendInfo$ | async )?.gitCommit | slice:0:8 }}">{{ (backendInfo$ | async )?.gitCommit | slice:0:8 }}</a>]</span>
           <span *ngIf="stateService.env.GIT_COMMIT_HASH_MEMPOOL_SPACE">[{{ (servicesBackendInfo$ | async )?.gitCommit | slice:0:8 }}]</span>
         </p>
-        <p *ngIf="!officialMempoolSpace">v{{ packetJsonVersion }} [<a target="_blank" href="https://github.com/TwentyOneCapital/mempool/commit/{{ frontendGitCommitHash }}">{{ frontendGitCommitHash }}</a>]</p>
+        <p *ngIf="!officialMempoolSpace">v{{ packetJsonVersion }} [<a target="_blank" href="https://github.com/TwentyOneCapital/xxi-explorer/commit/{{ frontendGitCommitHash }}">{{ frontendGitCommitHash }}</a>]</p>
       </div>
     </div>
   </div>

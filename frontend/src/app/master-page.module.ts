@@ -76,15 +76,15 @@ const routes: Routes = [
       }] : []),
       {
         path: 'terms-of-service',
-        loadChildren: () => import('@components/terms-of-service/terms-of-service.module').then(m => m.TermsOfServiceModule),
+        redirectTo: '/about',
       },
       {
         path: 'privacy-policy',
-        loadChildren: () => import('@components/privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule),
+        redirectTo: '/about',
       },
       {
         path: 'trademark-policy',
-        loadChildren: () => import('@components/trademark-policy/trademark-policy.module').then(m => m.TrademarkModule),
+        redirectTo: '/about',
       },
       {
         path: 'tx',
@@ -100,12 +100,11 @@ const routes: Routes = [
       },
       {
         path: 'docs',
-        loadChildren: () => import('@app/docs/docs.module').then(m => m.DocsModule),
-        data: { preload: true },
+        children: [{ path: '**', redirectTo: '/about' }],
       },
       {
         path: 'api',
-        loadChildren: () => import('@app/docs/docs.module').then(m => m.DocsModule)
+        children: [{ path: '**', redirectTo: '/about' }],
       },
       {
         path: 'lightning',

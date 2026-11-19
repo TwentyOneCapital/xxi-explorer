@@ -359,15 +359,8 @@ const downloadLiquidAssets = () => {
     }
     await downloadMiningPoolLogos();
 
-    if (config.verbose) {
-      console.log(`${LOG_TAG} Downloading promo video subtitles`);
-    }
-    await downloadPromoVideoSubtitles();
-
-    if (config.verbose) {
-      console.log(`${LOG_TAG} Downloading promo video`);
-    }
-    await downloadPromoVideo();
+    // Twenty One build: mempool's promo video and its subtitles are mempool
+    // branding and are not used here, so they are not downloaded.
 
     console.log(`${LOG_TAG} Asset synchronization complete`);
   } catch (error) {

@@ -275,3 +275,15 @@
     max-width: 1050px;
   }
 }
+
+// Twenty One build: a plain text page in place of mempool's About page.
+.about-page.twentyone-about {
+  text-align: left;
+  max-width: 760px;
+  margin: 32px auto 48px;
+  padding: 0 16px;
+
+  h1 { font-size: 1.75rem; margin-bottom: 1.25rem; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; }
+  p { line-height: 1.65; margin-bottom: 0.9rem; }
+}

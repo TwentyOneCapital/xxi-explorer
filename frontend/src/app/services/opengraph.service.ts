@@ -51,6 +51,9 @@ export class OpenGraphService {
   }
 
   setOgImage() {
+    if (this.stateService.env.customize?.enterprise === 'twentyone') {
+      return this.clearOgImage();
+    }
     const lang = this.LanguageService.getLanguage();
     const ogImageUrl = `${window.location.protocol}//${window.location.host}/render/${lang}/preview${this.router.url}`;
     this.metaService.updateTag({ property: 'og:image', content: ogImageUrl });
@@ -67,6 +70,9 @@ export class OpenGraphService {
   }
 
   setManualOgImage(imageFilename) {
+    if (this.stateService.env.customize?.enterprise === 'twentyone') {
+      return this.clearOgImage();
+    }
     const ogImage = `${window.location.protocol}//${window.location.host}/resources/previews/${imageFilename}`;
     this.metaService.updateTag({ property: 'og:image', content: ogImage });
     this.metaService.updateTag({ property: 'og:image:width', content: '2000' });

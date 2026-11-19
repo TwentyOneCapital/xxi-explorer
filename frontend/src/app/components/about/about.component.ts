@@ -48,8 +48,7 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
     this.backendInfo$ = this.stateService.backendInfo$;
     this.seoService.setTitle($localize`:@@004b222ff9ef9dd4771b777950ca1d0e4cd4348a:About`);
-    this.seoService.setDescription($localize`:@@meta.description.about:Learn more about The Mempool Open Source Project®\: enterprise sponsors, individual sponsors, integrations, who contributes, FOSS licensing, and more.`);
-    this.ogService.setManualOgImage('about.jpg');
+    this.seoService.setDescription('About Twenty One Capital\'s Bitcoin explorer: its software, open source license and trademarks.');
     this.websocketService.want(['blocks']);
 
     this.profiles$ = this.apiService.getAboutPageProfiles$().pipe(
