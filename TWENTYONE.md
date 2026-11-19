@@ -20,6 +20,7 @@ small so that upstream releases merge cleanly.
 | Footer | Twenty One legal links and X account, AGPL source link, trademark notice |
 | Backend Docker config | `WALLETS_*` settings so the open-source wallet feature can be switched on (off by default) |
 | Docker build | `CUSTOMIZATION` build argument and `docker/build-twentyone.sh` |
+| Dependency patches | Security bumps ahead of upstream (2026-11-19): backend `ws`, `axios`, `mysql2`, `bitcoinjs-lib`, `express`; frontend `@angular/*` to the latest 20.3.x and the `tar` override. Keep these when merging upstream, unless upstream has newer versions |
 
 Runtime settings are in the private `mempool-infra` repository. They point the
 backend at a self-hosted Fulcrum Electrum server and point the `services` API at a small
