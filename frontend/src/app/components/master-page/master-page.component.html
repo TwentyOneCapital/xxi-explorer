@@ -14,6 +14,31 @@
     <div *ngIf="user === undefined" class="profile_image_container"></div>
   </ng-container>
 
+  @if (env.customize?.enterprise === 'twentyone') {
+  <!-- Twenty One build: the wordmark links to the company website -->
+  <a class="navbar-brand d-none d-md-flex" href="https://twentyonecapital.com" [attr.aria-label]="enterpriseInfo?.title || 'Twenty One Capital'">
+    <ng-container *ngIf="{ val: connectionState$ | async } as connectionState">
+      <div class="subdomain_container">
+        <img [src]="enterpriseInfo?.logoUrl" [alt]="enterpriseInfo?.title" class="subdomain_logo custom_logo" [class.rounded]="enterpriseInfo?.rounded_corner">
+      </div>
+      <div class="connection-badge">
+        <div class="badge badge-warning" *ngIf="connectionState.val === 0" i18n="master-page.offline">Offline</div>
+        <div class="badge badge-warning" *ngIf="connectionState.val === 1" i18n="master-page.reconnecting">Reconnecting...</div>
+      </div>
+    </ng-container>
+  </a>
+  <a class="navbar-brand d-flex d-md-none justify-content-center" href="https://twentyonecapital.com" [attr.aria-label]="enterpriseInfo?.title || 'Twenty One Capital'">
+    <ng-container *ngIf="{ val: connectionState$ | async } as connectionState">
+      <div class="subdomain_container">
+        <img [src]="enterpriseInfo?.logoUrl" [alt]="enterpriseInfo?.title" class="subdomain_logo mobile_logo custom_logo" [class.rounded]="enterpriseInfo?.rounded_corner">
+      </div>
+      <div class="connection-badge">
+        <div class="badge badge-warning" *ngIf="connectionState.val === 0" i18n="master-page.offline">Offline</div>
+        <div class="badge badge-warning" *ngIf="connectionState.val === 1" i18n="master-page.reconnecting">Reconnecting...</div>
+      </div>
+    </ng-container>
+  </a>
+  } @else {
   <!-- Large screen -->
   <a class="navbar-brand d-none d-md-flex" [ngClass]="{'dual-logos': enterpriseInfo?.dualLogo}" [routerLink]="['/' | relativeUrl]" (click)="brandClick($event)">
     <ng-container *ngIf="{ val: connectionState$ | async } as connectionState">
@@ -56,6 +81,8 @@
       </div>
     </ng-container>
   </a>
+
+  }
 
   <div (window:resize)="onResize()" ngbDropdown class="dropdown-container" *ngIf="isDropdownVisible">
     <button ngbDropdownToggle type="button" class="btn btn-secondary dropdown-toggle-split d-flex justify-content-center align-items-center" aria-haspopup="true" aria-label="Select network">
