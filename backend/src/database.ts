@@ -23,6 +23,9 @@ import { execSync } from 'child_process';
     connectionLimit: config.DATABASE.POOL_SIZE,
     supportBigNumbers: true,
     timezone: '+00:00',
+    // mysql2 >= 3.2x parses MariaDB JSON columns itself; the code here expects
+    // the raw JSON text and calls JSON.parse, so keep returning strings.
+    jsonStrings: true,
   };
 
   /** @asyncUnsafe */
